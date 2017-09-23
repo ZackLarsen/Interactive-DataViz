@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        
+        <link rel="stylesheet" href="D3Demo.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        
+        <script>
+            function draw(){
+                var data = [{x:100,w:10,y:50,h:200},{x:150,w:10,y:100,h:150},{x:200,w:10,y:150,h:100},{x:250,w:10,y:200,h:50}]
+                
+                var canvas = d3.select("#canvas")
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("rect")
+                        .attr("x",function(d){ return d.x;})
+                        .attr("y",function(d){ return d.y;})
+                        .attr("width",function(d){return d.w;})
+                        .attr("height",function(d){ return d.h;})
+                
+            }
+            
+            
+        </script>
+        
+        <title>Now Let's Try D3</title>
+    </head>
+    <body onload="draw()">
+        <h1>Look at the pretty bar chart :)</h1>
+
+        <svg id="canvas" height="500" width="500" class="bluerect">
+            
+        </svg>
+
+    </body>
+</html>

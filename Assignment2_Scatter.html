@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>        
+        <link rel="stylesheet" href="D3Demo.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        <script>
+            function draw(){
+                var data = [{x:50,y:100},
+                            {x:75,y:75},
+                            {x:100,y:100},
+                            {x:75,y:125},
+                            {x:100,y:150},
+                            {x:125,y:125},
+                            {x:125,y:75},
+                            {x:150,y:100}]
+                
+                var canvas = d3.select("#canvas")
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("circle")
+                        .attr("cx",function(d){ return 500-d.x;})
+                        .attr("cy",function(d){ return 500-d.y;})
+                        .attr("r",5)
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("circle")
+                        .attr("cx",function(d){ return d.x;})
+                        .attr("cy",function(d){ return d.y;})
+                        .attr("r",5)
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("circle")
+                        .attr("cx",function(d){ return d.x;})
+                        .attr("cy",function(d){ return 500-d.y;})
+                        .attr("r",5)
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("circle")
+                        .attr("cx",function(d){ return 500-d.x;})
+                        .attr("cy",function(d){ return d.y;})
+                        .attr("r",5)
+            }    
+            
+        </script>
+        
+        <title>CSC 595 Zack Larsen Scatter plot</title>
+    </head>
+    <body onload="draw()">
+        <h2>CSC 595 Zack Larsen Scatter plot</h2>
+        
+        <svg id="canvas" height="500" width="500" class="scatter">
+        </svg>
+
+    </body>
+</html>

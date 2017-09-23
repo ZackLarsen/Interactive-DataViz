@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>    
+        <link rel="stylesheet" href="D3Demo.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        
+        <script>
+            function draw(){
+                var data = [10,20,30,40,50,60,70,80,90,100]
+                
+                var canvas = d3.select("#canvas")
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("rect")
+                        .attr("x",function(d){ return d})
+                        .attr("y",function(d){ return 150-d})
+                        .attr("width",5)
+                        .attr("height",function(d){ return d})
+            }
+            
+        </script>
+        
+        <title>CSC 595 Zack Larsen Bar Plot</title>
+    </head>
+    <body onload="draw()">
+        <h2>CSC 595 Zack Larsen Bar Plot</h2>
+
+        <svg id="canvas" height="150" width="200" class="bluerect">
+        </svg>
+
+    </body>
+</html>

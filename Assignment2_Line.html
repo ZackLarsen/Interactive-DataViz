@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>    
+        <link rel="stylesheet" href="D3Demo.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        <script>
+            function draw(){
+                var data = [5,10,15,20,50,90,100]
+                
+                var canvas = d3.select("#canvas")
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("line")
+                        .attr("x1",function(d){ return d})
+                        .attr("y1",function(d){ return d})
+                        .attr("x2",function(d){ return d+10})
+                        .attr("y2",function(d){ return d})
+                
+                canvas.selectAll("empty").data(data).enter()
+                    .append("line")
+                        .attr("x1",function(d){ return d+10})
+                        .attr("y1",function(d){ return d})
+                        .attr("x2",function(d){ return d+10})
+                        .attr("y2",function(d){ return d+10})
+                       
+            }       
+            
+        </script>
+        
+        <title>CSC 595 Zack Larsen Line graph</title>
+    </head>
+    <body onload="draw()">
+        <h2>CSC 595 Zack Larsen Line graph</h2>
+
+        <svg id="canvas" height="500" width="500" class="redline">
+        </svg>
+
+    </body>
+</html>
